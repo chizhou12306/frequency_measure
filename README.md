@@ -2,14 +2,9 @@
 STM32F29IGT6 frequency measurement
 
 ```
-LINK TO:http://www.openedv.com/forum.php?mod=viewthread&tid=82594&highlight=%B2%E2%C1%BF%C6%B5%C2%CA
+LINK TO:【教程】使用STM32测量频率和占空比的几种方法http://www.openedv.com/forum.php?mod=viewthread&tid=82594&highlight=%B2%E2%C1%BF%C6%B5%C2%CA
 ```
 
-Rhinocores
-
-graph LR
-A[方形] -->B(圆角)
-    B --> C{条件a}
-    C -->|a=1| D[结果1]
-    C -->|a=2| E[结果2]
-    F[横向流程图]
+缺陷显而易见，当频率提高，将会频繁进入中断，占用大量时间。
+而当频率超过100kHz时，中断程序时间甚至将超过脉冲周期，产生巨大误差。
+同时更重要的是，想要测量的占空比由于受到中断程序影响，误差将越来越大。
